@@ -1,1 +1,1 @@
-
+require("coocobolo").setup()
