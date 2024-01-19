@@ -2,20 +2,7 @@ local c = require("coocobolo.colors").color_palette
 
 local M = {}
 
-local config = {
-	transparent = true,
-	terminal_colors = true,
-	styles = {
-		comments = { bold = false, italic = false },
-		keywords = { bold = true, italic = false },
-		functions = { bold = true, italic = false },
-		variables = { bold = false, italic = false },
-	},
-	dim_inactive = false,
-	default_background = true,
-}
-
-local function clearHighlights()
+local function clear_highlights()
 	vim.cmd("hi clear")
 
 	if vim.fn.exists("syntax_on") then
@@ -23,21 +10,28 @@ local function clearHighlights()
 	end
 end
 
-function M.setup()
-	clearHighlights()
+local function set_vim_option()
 	vim.g.colors_name = "coocobolo"
 	vim.g.termguicolors = true
+
+	vim.cmd("set t_Co=256")
 	vim.o.background = "dark"
 	vim.o.winblend = 0
-	M.set_groups()
 end
 
-function M.set_groups()
+function M.setup(config)
+	clear_highlights()
+	set_vim_option()
+	M.set_groups(config)
+end
+
+function M.set_groups(config)
+	local styles = config.styles
 	local groups = {
 		-- Base
 		-- normal mode
 		-- todo: if opts.transparent then bg = none, if not then bg = chinese
-		Normal = { fg = c.grey_davy, bg = c.dark_onxy },
+		Normal = { fg = c.grey_davy, bg = c.none },
 
 		-- todo: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
 		NormalNC = { fg = c.dark_gravel, bg = c.dark_onxy },
@@ -91,7 +85,7 @@ function M.set_groups()
 
 		FoldColumn = { fg = c.dark_rangoon, bg = c.none, bold = false },
 
-		-- TREESITTER
+		-- CODE
 		Function = { fg = c.white_dust, bg = c.none, bold = false },
 
 		Operator = { fg = c.grey_gravel, bg = c.none, bold = false },
@@ -126,7 +120,11 @@ function M.set_groups()
 
 		PreProc = { fg = c.grey_davy, bg = c.none, bold = false },
 
+		Conceal = { fg = c.white_dust3, bg = c.none, bold = false },
+
 		Underlined = { fg = c.blue_meadow, bg = c.none, bold = false },
+
+		Italic = { fg = c.grey_davy, bg = c.none, bold = false, italic = true },
 
 		SpecialKey = { fg = c.grey_davy, bg = c.none, bold = false },
 
