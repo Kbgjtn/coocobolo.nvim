@@ -1,4 +1,4 @@
-local palette = require("coocobolo.colors").palette
+local c = require("coocobolo.colors").color_palette
 
 local M = {}
 
@@ -15,10 +15,9 @@ local config = {
 	default_background = true,
 }
 
-M.options = {}
-
 local function clearHighlights()
 	vim.cmd("hi clear")
+
 	if vim.fn.exists("syntax_on") then
 		vim.cmd("syntax reset")
 	end
@@ -26,6 +25,10 @@ end
 
 function M.setup()
 	clearHighlights()
+	vim.g.colors_name = "coocobolo"
+	vim.g.termguicolors = true
+	vim.o.background = "dark"
+	vim.o.winblend = 0
 	M.set_groups()
 end
 
@@ -34,110 +37,171 @@ function M.set_groups()
 		-- Base
 		-- normal mode
 		-- todo: if opts.transparent then bg = none, if not then bg = chinese
-		Normal = { fg = palette.dark.soft, bg = palette.dark.chinese },
+		Normal = { fg = c.grey_davy, bg = c.dark_onxy },
 
 		-- todo: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
-		NormalNC = { fg = palette.dark.soft, bg = palette.dark.chinese },
+		NormalNC = { fg = c.dark_gravel, bg = c.dark_onxy },
 
-		NormalFloat = { fg = palette.dark.soft },
+		NormalFloat = { fg = c.grey_gravel },
 
 		-- visual mode
-		Visual = { fg = palette.none, bg = palette.dark.elitle, bold = true },
+		Visual = { fg = c.none, bg = c.dark_rangoon, bold = true },
 
 		-- Cursor
-		Cursor = { bg = palette.dark.charcoal, ctermfg = 15, bold = true },
+		Cursor = { bg = c.dark_grey },
 
-		lCursor = { fg = palette.red.soft, bg = palette.dark.liver, bold = true },
+		lCursor = { fg = c.red_orange, bg = c.dark_grey, bold = true },
 
-		CursorLine = { bg = palette.dark.elitle },
+		CursorLine = { bg = c.dark_rangoon, fg = c.none },
 
-		cursorlinenr = { fg = palette.red.cg, bg = palette.none, bold = true },
+		TermCursor = { bg = c.dark_rangoon, fg = c.green_meadow },
 
-		CurSearch = { fg = palette.green.g_yellow, bg = palette.dark.elitle, bold = true },
+		cursorlinenr = { fg = c.shocking_orange, bg = c.none, bold = true },
 
-		SignColumn = { fg = palette.dark.chinese, bg = palette.dark.chinese, bold = false },
+		CurSearch = { fg = c.green_meadow, bg = c.none, bold = true },
 
-		CursorLineSign = { fg = palette.dark.chinese, bg = palette.none, bold = false },
+		SignColumn = { fg = c.dark_onxy, bg = c.dark_onxy, bold = false },
 
-		SignalSign = { fg = palette.dark.chinese, bg = palette.dark.chinese, bold = false },
+		CursorLineSign = { fg = c.dark_onxy, bg = c.none, bold = false },
 
-		LineNr = { fg = palette.dark.charcoal, bg = palette.dark.chinese },
+		SignalSign = { fg = c.dark_onxy, bg = c.dark_onxy, bold = false },
+
+		LineNr = { fg = c.dark_jungle, bg = c.none },
 
 		-- tilde end of buffer in the sidebars
-		EndOfBuffer = { fg = palette.dark.chinese, bg = palette.dark.chinese },
+		EndOfBuffer = { fg = c.dark_onxy, bg = c.none },
 
-		MsgArea = { fg = palette.dark.softest, bg = palette.dark.chinese, bold = true },
+		MsgArea = { fg = c.dark_gravelest, bg = c.dark_onxy, bold = true },
 
-		ModeMsg = { fg = palette.dark.soft, bg = palette.dark.chinese, bold = false },
+		ModeMsg = { fg = c.dark_gravel, bg = c.dark_onxy, bold = false },
 
-		MoreMsg = { fg = palette.grey.tints, bg = palette.dark.chinese, bold = false },
+		MoreMsg = { fg = c.white_dust, bg = c.dark_onxy, bold = false },
 
-		MsgSeparator = { fg = palette.dark.other, bg = palette.dark.chinese, bold = true },
+		MsgSeparator = { fg = c.dim_grey, bg = c.dark_onxy, bold = true },
 
 		-- Question
-		Question = { fg = palette.dark.soft, bg = palette.dark.eerie },
+		Question = { fg = c.dark_gravel, bg = c.dark_eerie },
 
-		Search = { fg = palette.green.g_yellow, bg = palette.none, bold = true },
+		Search = { fg = c.orange_chrome, bg = c.dark_rangoon, bold = false },
 
-		IncSearch = { fg = palette.green.g_yellow, bg = palette.none, bold = true },
+		IncSearch = { fg = c.green_meadow, bg = c.none, bold = true },
 
 		-- Fold
-		Folded = { fg = palette.dark.charcoal, bg = palette.none, bold = false },
-		FoldColumn = { fg = palette.dark.raisin, bg = palette.none, bold = false },
+		Folded = { fg = c.dark_thunder, bg = c.none, bold = false },
+
+		FoldColumn = { fg = c.dark_rangoon, bg = c.none, bold = false },
 
 		-- TREESITTER
-		Function = { fg = palette.grey.tints, bg = palette.none, bold = true },
-		Operator = { fg = palette.dark.other, bg = palette.none, bold = false },
-		Identifier = { fg = palette.dark.softest, bg = palette.none, bold = false },
-		String = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Delimiter = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Number = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Boolean = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Comment = { fg = palette.dark.charcoal, bg = palette.none, bold = false },
-		Keyword = { fg = palette.grey.suplight, bg = palette.none, bold = false },
-		Repeat = { fg = palette.red.soft, bg = palette.none, bold = false },
-		Special = { fg = palette.dark.softest, bg = palette.none, bold = false },
-		NonText = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Type = { fg = palette.dark.soft, bg = palette.none, bold = false },
-		Title = { fg = palette.dark.softest, bg = palette.none, bold = true },
-		Statement = { fg = palette.yellow.sunglow, bg = palette.none, bold = false },
-		Constant = { fg = palette.dark.softest, bg = palette.none, bold = true },
-		PreProc = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Underlined = { fg = palette.blue.meadow, bg = palette.none, bold = true },
-		SpecialKey = { fg = palette.dark.soft2, bg = palette.none, bold = false },
-		Directory = { fg = palette.dark.other, bg = palette.none, bold = true },
+		Function = { fg = c.white_dust, bg = c.none, bold = false },
 
-		Error = { fg = palette.red.cg, bg = palette.none },
-		ErrorMsg = { fg = palette.red.cg, bg = palette.none },
+		Operator = { fg = c.grey_gravel, bg = c.none, bold = false },
 
-		-- DiagnosticUnderlineWarn
-		-- DiagnosticUnderlineError
-		DiagnosticUnderlineWarn = { fg = palette.orange.chinese, bg = palette.none, bold = false, underline = true },
-		DiagnosticUnderlineError = { fg = palette.red.cg, bg = palette.none, bold = false, underline = true },
+		Identifier = { fg = c.grey_smokey, bg = c.none, bold = false },
+
+		String = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Delimiter = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Number = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Boolean = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Comment = { fg = c.dark_grey, bg = c.none, bold = false },
+
+		Keyword = { fg = c.fg, bg = c.none, bold = false },
+
+		Repeat = { fg = c.shocking_orange, bg = c.none, bold = false },
+
+		Special = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		NonText = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Type = { fg = c.grey_smokey, bg = c.none, bold = false },
+
+		Title = { fg = c.dark_gravelest, bg = c.none, bold = true },
+
+		Statement = { fg = c.yellow_candle, bg = c.none, bold = false },
+
+		Constant = { fg = c.dark_gravelest, bg = c.none, bold = true },
+
+		PreProc = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Underlined = { fg = c.blue_meadow, bg = c.none, bold = false },
+
+		SpecialKey = { fg = c.grey_davy, bg = c.none, bold = false },
+
+		Directory = { fg = c.dim_grey, bg = c.none, bold = true },
+
+		Error = { fg = c.shocking_orange, bg = c.none },
+
+		ErrorMsg = { fg = c.shocking_orange, bg = c.none },
+
+		DiagnosticUnderlineWarn = { fg = c.shocking_orange, bg = c.none, bold = false, underline = true },
+
+		DiagnosticUnderlineError = { fg = c.shocking_orange, bg = c.none, bold = false, underline = true },
+
+		DiagnosticUnderlineHint = { fg = c.dark_thunder, bg = c.none, underline = true },
 
 		-- Float
-		FloatTitle = { fg = palette.dark.soft, bg = palette.none },
-		FloatBorder = { fg = palette.dark.raisin, bg = palette.none },
+		FloatTitle = { fg = c.grey_smokey, bg = c.none },
 
-		WildMenu = { bg = palette.dark.eerie, fg = palette.yellow.sunglow_dim },
-		WildMenuSelected = { bg = palette.dark.eerie, fg = palette.yellow.sunglow_dim },
+		FloatBorder = { fg = c.dark_jungle, bg = c.none },
+
+		WildMenu = { bg = c.dark_eerie, fg = c.yellow_naples },
+
+		WildMenuSelected = { bg = c.dark_eerie, fg = c.yellow_naples },
 
 		-- Pmenu
-		Pmenu = { fg = palette.dark.liver, bg = palette.dark.chinese },
-		PmenuSel = { fg = palette.grey.suplight, bg = palette.dark.elitle, bold = true },
-		PmenuSbar = { bg = palette.none },
-		PmenuThumb = { bg = palette.none },
-		PopupWindowBorder = { fg = palette.dark.softest, bg = palette.none },
+		Pmenu = { fg = c.dark_grey, bg = c.dark_onxy },
 
-		-- Ts
-		["@keyword.return.lua"] = { fg = palette.green.g_yellow, bg = palette.none, bold = true },
-		["@label.json"] = { fg = palette.dark.other, bg = palette.none, bold = false },
-		["@label.jsonc"] = { fg = palette.dark.other, bg = palette.none, bold = false },
-		["@tag.html"] = { fg = palette.dark.other, bg = palette.none, bold = false },
+		PmenuSel = { fg = c.red_orange, bg = c.dark_rangoon, bold = true },
+
+		PmenuSbar = { bg = c.none },
+
+		PmenuThumb = { bg = c.none },
+
+		PopupWindowBorder = { fg = c.dark_gravelest, bg = c.none },
+
+		VertSplit = { bg = c.dark_onxy, fg = c.dark_onxy },
+
+		StatusLine = { bg = c.dark_eerie, fg = c.dark_eerie },
+
+		StatusLineNC = { bg = c.dark_eerie, fg = c.dark_eerie },
+
+		StatusLineTerm = { bg = c.dark_eerie, fg = c.dark_eerie },
+
+		-- Telescope
+		TelescopeBorder = { bg = c.none, fg = c.dark_jungle2 },
+
+		TelescopeMatching = { fg = c.shocking_orange },
+
+		TelescopeNormal = { bg = c.none },
+
+		TelescopePreviewTitle = { bg = c.none, fg = c.grey_davy },
+
+		TelescopePromptTitle = { bg = c.none, fg = c.grey_davy },
+
+		TelescopePromptPrefix = { bg = c.none, fg = c.grey_davy },
+
+		TelescopeResultsTitle = { bg = c.none, fg = c.grey_davy },
+
+		TelescopeSelectionCaret = { fg = c.shocking_orange },
+
+		TelescopeSelection = { bg = c.dark_rangoon, fg = c.none },
+
+		["@keyword.return.lua"] = { fg = c.grey_smokey, bg = c.none, bold = true },
+		["@keyword.return.go"] = { fg = c.grey_smokey, bg = c.none, bold = true },
+		["@namespace.go"] = { bold = true },
+		["@function.builtin.go"] = { fg = c.red_orange },
+
+		["@lsp.mod.global.lua"] = { bold = false },
+		["@label.json"] = { fg = c.dim_grey, bg = c.none, bold = false },
+		["@label.jsonc"] = { fg = c.dim_grey, bg = c.none, bold = false },
+		["@tag.html"] = { fg = c.dim_grey, bg = c.none, bold = false },
 	}
 
-	for group, properties in pairs(groups) do
-		vim.api.nvim_set_hl(0, group, properties)
+	for group, property in pairs(groups) do
+		vim.api.nvim_set_hl(0, group, property)
 	end
 end
 
