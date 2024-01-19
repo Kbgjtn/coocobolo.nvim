@@ -1,5 +1,42 @@
 local M = {}
 
+M.color_palette = {
+	none = "NONE",
+
+	dark_onxy = "#101010",
+	dark_eerie = "#1A1A1A",
+	dark_rangoon = "#191919",
+	dark_jungle = "#202020",
+	dark_jungle2 = "#212121",
+	dark_thunder = "#303030",
+	dark_grey = "#353535",
+	dark_dune = "#474747",
+
+	white_dust = "#9F9C9A",
+	white_dust2 = "#8E8C8A",
+	white_dust3 = "#7E7C7B",
+
+	orange_chrome = "#FFA600",
+	orange_blush = "#EEA190",
+	shocking_orange = "#E0654A",
+
+	yellow_candle = "#FFC436",
+	yellow_naples = "#FFD05E",
+
+	grey_davy = "#555555",
+	dim_grey = "#606060",
+	grey_gravel = "#45454A",
+	grey_smokey = "#707070",
+	grey_slate = "#BAB8B4",
+
+	green_shadow = "#95C0C3",
+	green_meadow = "#71AC1E",
+
+	red_orange = "#F26E5A",
+
+	blue_meadow = "#1BBB96",
+}
+
 M.palette = {
 	none = "NONE",
 	blue = {
