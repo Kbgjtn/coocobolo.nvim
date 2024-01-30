@@ -31,6 +31,7 @@ M.color_palette = {
 
 	green_shadow = "#95C0C3",
 	green_meadow = "#71AC1E",
+	green_meadow2 = "#95C92C",
 
 	red_orange = "#F26E5A",
 

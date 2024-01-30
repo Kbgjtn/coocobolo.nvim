@@ -54,11 +54,11 @@ function M.set_groups(config)
 
 		CurSearch = { fg = c.green_meadow, bg = c.none, bold = true },
 
-		SignColumn = { fg = c.dark_onxy, bg = c.dark_onxy, bold = false },
+		SignColumn = { fg = c.dark_onxy, bg = c.dark_onxy },
 
-		CursorLineSign = { fg = c.dark_onxy, bg = c.none, bold = false },
+		CursorLineSign = { fg = c.dark_onxy, bg = c.none },
 
-		SignalSign = { fg = c.dark_onxy, bg = c.dark_onxy, bold = false },
+		SignalSign = { fg = c.dark_onxy, bg = c.dark_onxy },
 
 		LineNr = { fg = c.dark_jungle, bg = c.none },
 
@@ -67,66 +67,66 @@ function M.set_groups(config)
 
 		MsgArea = { fg = c.dark_gravelest, bg = c.dark_onxy, bold = true },
 
-		ModeMsg = { fg = c.dark_gravel, bg = c.dark_onxy, bold = false },
+		ModeMsg = { fg = c.dark_gravel, bg = c.dark_onxy },
 
-		MoreMsg = { fg = c.white_dust, bg = c.dark_onxy, bold = false },
+		MoreMsg = { fg = c.white_dust, bg = c.dark_onxy },
 
 		MsgSeparator = { fg = c.dim_grey, bg = c.dark_onxy, bold = true },
 
 		-- Question
 		Question = { fg = c.dark_gravel, bg = c.dark_eerie },
 
-		Search = { fg = c.orange_chrome, bg = c.dark_rangoon, bold = false },
+		Search = { fg = c.orange_chrome, bg = c.dark_rangoon },
 
 		IncSearch = { fg = c.green_meadow, bg = c.none, bold = true },
 
 		-- Fold
-		Folded = { fg = c.dark_thunder, bg = c.none, bold = false },
+		Folded = { fg = c.dark_thunder, bg = c.none },
 
-		FoldColumn = { fg = c.dark_rangoon, bg = c.none, bold = false },
+		FoldColumn = { fg = c.dark_rangoon, bg = c.none },
 
 		-- CODE
-		Function = { fg = c.white_dust, bg = c.none, bold = false },
+		Function = { fg = c.white_dust, bg = c.none },
 
-		Operator = { fg = c.grey_gravel, bg = c.none, bold = false },
+		Operator = { fg = c.grey_gravel, bg = c.none },
 
-		Identifier = { fg = c.grey_smokey, bg = c.none, bold = false },
+		Identifier = { fg = c.grey_smokey, bg = c.none },
 
-		String = { fg = c.grey_davy, bg = c.none, bold = false },
+		String = { fg = c.grey_davy, bg = c.none },
 
-		Delimiter = { fg = c.grey_davy, bg = c.none, bold = false },
+		Delimiter = { fg = c.grey_davy, bg = c.none },
 
-		Number = { fg = c.grey_davy, bg = c.none, bold = false },
+		Number = { fg = c.grey_davy, bg = c.none },
 
-		Boolean = { fg = c.grey_davy, bg = c.none, bold = false },
+		Boolean = { fg = c.grey_davy, bg = c.none },
 
-		Comment = { fg = c.dark_grey, bg = c.none, bold = false },
+		Comment = { fg = c.dark_grey, bg = c.none },
 
-		Keyword = { fg = c.fg, bg = c.none, bold = false },
+		Keyword = { fg = c.fg, bg = c.none },
 
-		Repeat = { fg = c.shocking_orange, bg = c.none, bold = false },
+		Repeat = { fg = c.shocking_orange, bg = c.none },
 
-		Special = { fg = c.grey_davy, bg = c.none, bold = false },
+		Special = { fg = c.grey_davy, bg = c.none },
 
-		NonText = { fg = c.grey_davy, bg = c.none, bold = false },
+		NonText = { fg = c.grey_davy, bg = c.none },
 
-		Type = { fg = c.grey_smokey, bg = c.none, bold = false },
+		Type = { fg = c.grey_smokey, bg = c.none },
 
 		Title = { fg = c.dark_gravelest, bg = c.none, bold = true },
 
-		Statement = { fg = c.yellow_candle, bg = c.none, bold = false },
+		Statement = { fg = c.yellow_candle, bg = c.none },
 
 		Constant = { fg = c.dark_gravelest, bg = c.none, bold = true },
 
-		PreProc = { fg = c.grey_davy, bg = c.none, bold = false },
+		PreProc = { fg = c.grey_davy, bg = c.none },
 
-		Conceal = { fg = c.white_dust3, bg = c.none, bold = false },
+		Conceal = { fg = c.white_dust3, bg = c.none },
 
-		Underlined = { fg = c.blue_meadow, bg = c.none, bold = false },
+		Underlined = { fg = c.blue_meadow, bg = c.none },
 
-		Italic = { fg = c.grey_davy, bg = c.none, bold = false, italic = true },
+		Italic = { fg = c.grey_davy, bg = c.none, italic = true },
 
-		SpecialKey = { fg = c.grey_davy, bg = c.none, bold = false },
+		SpecialKey = { fg = c.grey_davy, bg = c.none },
 
 		Directory = { fg = c.dim_grey, bg = c.none, bold = true },
 
@@ -134,9 +134,9 @@ function M.set_groups(config)
 
 		ErrorMsg = { fg = c.shocking_orange, bg = c.none },
 
-		DiagnosticUnderlineWarn = { fg = c.shocking_orange, bg = c.none, bold = false, underline = true },
+		DiagnosticUnderlineWarn = { fg = c.shocking_orange, bg = c.none, underline = true },
 
-		DiagnosticUnderlineError = { fg = c.shocking_orange, bg = c.none, bold = false, underline = true },
+		DiagnosticUnderlineError = { fg = c.shocking_orange, bg = c.none, underline = true },
 
 		DiagnosticUnderlineHint = { fg = c.dark_thunder, bg = c.none, underline = true },
 
@@ -192,10 +192,18 @@ function M.set_groups(config)
 		["@namespace.go"] = { bold = true },
 		["@function.builtin.go"] = { fg = c.red_orange },
 
-		["@lsp.mod.global.lua"] = { bold = false },
-		["@label.json"] = { fg = c.dim_grey, bg = c.none, bold = false },
-		["@label.jsonc"] = { fg = c.dim_grey, bg = c.none, bold = false },
-		["@tag.html"] = { fg = c.dim_grey, bg = c.none, bold = false },
+		["@lsp.mod.global.lua"] = {},
+		["@label.json"] = { fg = c.dim_grey, bg = c.none },
+		["@label.jsonc"] = { fg = c.dim_grey, bg = c.none },
+		["@tag.html"] = { fg = c.dim_grey, bg = c.none },
+
+		["@lsp.type.annotation.java"] = { fg = c.yellow_candle },
+		["@lsp.type.class.java"] = { bold = true },
+
+		-- git signs
+		["GitSignsAdd"] = { fg = c.green_meadow2 },
+		["GitSignsChange"] = { fg = c.orange_chrome },
+		["GitSignsDelete"] = { fg = c.shocking_orange },
 	}
 
 	for group, property in pairs(groups) do
