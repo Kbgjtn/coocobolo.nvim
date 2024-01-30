@@ -197,7 +197,6 @@ function M.set_groups(config)
 		["@label.jsonc"] = { fg = c.dim_grey, bg = c.none },
 		["@tag.html"] = { fg = c.dim_grey, bg = c.none },
 
-		["@lsp.type.annotation.java"] = { fg = c.yellow_candle },
 		["@lsp.type.class.java"] = { bold = true },
 
 		-- git signs
