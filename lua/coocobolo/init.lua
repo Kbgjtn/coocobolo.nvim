@@ -1,8 +1,8 @@
-local config = require("coocobolo.config")
+local cfg = require("coocobolo.config")
 
 local M = {}
 
-M.config = {
+M.base_options = {
 	transparent = true,
 	terminal_colors = true,
 	styles = {
@@ -12,12 +12,19 @@ M.config = {
 		variables = { bold = false, italic = false },
 	},
 	dim_inactive = false,
+	theme = "dark",
 	default_background = true,
+	palette = {},
 }
 
 function M.setup(options)
-	M.config = vim.tbl_deep_extend("force", M.config, config)
-	config.setup(M.config)
+	if options == nil then
+		options = M.base_options
+	else
+		M.base_options = vim.tbl_deep_extend("force", M.base_options, options)
+	end
+
+	cfg.setup(M.base_options)
 end
 
 P = function(v)
