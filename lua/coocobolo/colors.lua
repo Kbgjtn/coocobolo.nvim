@@ -1,8 +1,7 @@
 local M = {}
 
-M.color_palette = {
+M.base = {
 	none = "NONE",
-
 	dark_onxy = "#101010",
 	dark_eerie = "#1A1A1A",
 	dark_rangoon = "#191919",
@@ -32,65 +31,30 @@ M.color_palette = {
 	green_shadow = "#95C0C3",
 	green_meadow = "#71AC1E",
 	green_meadow2 = "#95C92C",
+	green_dull = "#D9D930",
 
 	red_orange = "#F26E5A",
-
-	blue_meadow = "#1BBB96",
 }
 
-M.palette = {
-	none = "NONE",
-	blue = {
-		azure = "#008fd1",
-		meadow = "#1bbb96",
-	},
-	dark = {
-		chinese = "#101010",
-		chinese_dim = "#111111",
-		elitle = "#191919",
-		eerie = "#1A1A1A",
-		raisin = "#222222",
-		charcoal = "#303030",
-		liver = "#323232",
-		soft = "#45474B",
-		soft2 = "#555555",
-		softest = "#707070",
-		other = "#606060",
-	},
-	grey = {
-		tints = "#989898",
-		argent = "#C1C1C1",
-		tones = "#606060",
-		light = "#D9D9D9",
-		suplight = "#999999",
-	},
-	red = {
-		soft2 = "#E38C8C",
-		softest = "#FF6666",
-		soft = "#F26E5A",
-		cg = "#E0654A",
-	},
-	yellow = {
-		sunglow = "#FFC436",
-		sunglow_dim = "#FFD05E",
-		soft = "#FFD099",
-	},
-	orange = {
-		beer = "#FB8B24",
-		chinese = "#d68f00",
-		soft = "#F3B664",
-		softest = "#FFA13D",
-	},
-	green = {
-		funky = "#E9EDC9",
-		pear = "#D2DE32",
-		granny = "#C2E1B7",
-		g_yellow = "#65B300",
-	},
-}
-
-function M.setup(opts)
-	opts = opts or {}
+local merge = function(a, b)
+	local c = {}
+	for k, v in pairs(a) do
+		c[k] = v
+	end
+	for k, v in pairs(b) do
+		c[k] = v
+	end
+	return c
 end
+
+M.dark_palette = {}
+M.colorful_palette = {}
+
+M.dark_palette = merge(M.base, M.dark_palette)
+M.colorful_palette = merge(M.base, M.dark_palette)
+
+M.dark_group = {
+	Normal = { fg = M.base.red_orange, bg = M.base.dark_grey },
+}
 
 return M
