@@ -1,5 +1,3 @@
-local dark_group = require("coocobolo.colors").dark_group
-
 local M = {}
 
 function M.hl(c)
