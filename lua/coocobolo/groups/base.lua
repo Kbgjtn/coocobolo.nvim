@@ -2,7 +2,7 @@ local M = {}
 
 function M.hl(c)
 	local group = {
-		Normal = { fg = c.grey_davy, bg = c.none },
+		Normal = { fg = c.grey_davy, bg = c.dark_onxy },
 
 		-- todo: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
 		NormalNC = { fg = c.dark_gravel, bg = c.dark_onxy },
@@ -78,7 +78,7 @@ function M.hl(c)
 
 		Special = { fg = c.grey_davy, bg = c.none },
 
-		Todo = { fg = c.grey_davy, bg = c.none },
+		Todo = { fg = c.grey_gravel, bg = c.dark_eerie, bold = true },
 
 		NonText = { fg = c.grey_davy, bg = c.none },
 
@@ -106,7 +106,7 @@ function M.hl(c)
 
 		ErrorMsg = { fg = c.shocking_orange, bg = c.none },
 
-		DiagnosticUnderlineWarn = { fg = c.shocking_orange, bg = c.none, underline = true },
+		DiagnosticUnderlineWarn = { fg = c.orange_chinese, bg = c.none, underline = true },
 
 		DiagnosticUnderlineError = { fg = c.shocking_orange, bg = c.none, underline = true },
 
@@ -169,17 +169,16 @@ function M.hl(c)
 
 		["@lsp.type.class.java"] = { bold = true },
 
-		-- git signs
-		["GitSignsAdd"] = { fg = c.green_meadow2 },
-		["GitSignsChange"] = { fg = c.orange_chrome },
-		["GitSignsDelete"] = { fg = c.shocking_orange },
 		["helpWarning"] = { fg = c.orange_chrome, bold = true },
 		["helpNote"] = { fg = c.yellow_candle, bold = true },
 
-		["shQuote"] = { fg = c.green_meadow2 },
+		["shQuote"] = { fg = c.grey_davy },
 		["luaString"] = { fg = c.dark_onxy, link = "Constant" },
 
 		NvimInternalError = { fg = c.red_orange, bg = c.none, bold = true },
+
+		["protoFloat"] = { fg = c.white_dust3 },
+		["@comment.note"] = { fg = c.yellow_candle },
 	}
 
 	return group
