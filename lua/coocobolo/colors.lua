@@ -21,6 +21,7 @@ M.base = {
 
 	yellow_candle = "#FFC436",
 	yellow_naples = "#FFD05E",
+	yellow_naples_90 = "#ffe099",
 
 	grey_davy = "#555555",
 	dim_grey = "#606060",
@@ -34,6 +35,14 @@ M.base = {
 	green_dull = "#D9D930",
 
 	red_orange = "#F26E5A",
+
+	yellow_sunglow = "#FFC436",
+	yellow_sunglow_dim = "#FFD05E",
+	yellow_soft = "#FFD099",
+
+	orange_beer = "#FB8B24",
+	orange_chinese = "#FFB000",
+	orange_soft = "#F3B664",
 }
 
 local merge = function(a, b)
