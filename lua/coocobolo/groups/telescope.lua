@@ -6,7 +6,7 @@ function M.hl(c)
 
 		TelescopeMatching = { fg = c.shocking_orange },
 
-		TelescopeNormal = { bg = c.none },
+		TelescopeNormal = { bg = c.dark_onxy },
 
 		TelescopePreviewTitle = { bg = c.none, fg = c.grey_davy },
 

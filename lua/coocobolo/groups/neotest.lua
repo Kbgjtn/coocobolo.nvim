@@ -2,7 +2,7 @@ local M = {}
 
 function M.hl(c)
 	return {
-		NeotestAdapterName = { fg = "#000000" },
+		NeotestAdapterName = { fg = c.none },
 		NeotestIndent = { link = "Type" },
 		NeotestFocused = { fg = c.white_dust2 },
 		NeotestExpandMarker = { link = "Type" },
