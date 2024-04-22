@@ -2,7 +2,7 @@ local M = {}
 
 function M.hl(c)
 	local group = {
-		Normal = { fg = c.grey_davy, bg = c.dark_onxy },
+		Normal = { fg = c.grey_gravel, bg = c.dark_onxy },
 
 		-- todo: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
 		NormalNC = { fg = c.dark_gravel, bg = c.dark_onxy },
@@ -41,24 +41,24 @@ function M.hl(c)
 
 		MoreMsg = { fg = c.white_dust, bg = c.dark_onxy },
 
+		Exception = { fg = c.white_dust2, bg = c.dark_onxy },
+
 		MsgSeparator = { fg = c.dim_grey, bg = c.dark_onxy, bold = true },
 
-		-- Question
 		Question = { fg = c.dark_gravel, bg = c.dark_eerie },
 
 		Search = { fg = c.orange_chrome, bg = c.dark_rangoon },
 
 		IncSearch = { fg = c.yellow_naples, bg = c.none, bold = true },
 
-		-- Fold
 		Folded = { fg = c.dark_thunder, bg = c.none },
 
 		FoldColumn = { fg = c.dark_rangoon, bg = c.none },
 
 		-- CODE
-		Function = { fg = c.white_dust, bg = c.none },
+		Function = { fg = c.white_dust2, bg = c.none },
 
-		Operator = { fg = c.grey_gravel, bg = c.none },
+		Operator = { fg = c.grey_smokey, bg = c.none },
 
 		Identifier = { fg = c.grey_smokey, bg = c.none },
 
@@ -68,7 +68,7 @@ function M.hl(c)
 
 		Number = { fg = c.grey_davy, bg = c.none },
 
-		Boolean = { fg = c.grey_davy, bg = c.none, bold = false },
+		Boolean = { fg = c.grey_davy, bg = c.none },
 
 		Comment = { fg = c.dark_grey, bg = c.none },
 
@@ -82,13 +82,13 @@ function M.hl(c)
 
 		NonText = { fg = c.grey_davy, bg = c.none },
 
-		Type = { fg = c.yellow_candle, bg = c.none },
+		Type = { fg = c.grey_smokey, bg = c.none },
 
 		Title = { fg = c.dark_gravelest, bg = c.none, bold = true },
 
-		Statement = { fg = c.green_dull, bg = c.none },
+		Statement = { fg = c.blue_lowkey2, bg = c.none },
 
-		Constant = { fg = c.dark_gravelest, bg = c.none, bold = false },
+		Constant = { fg = c.grey_davy, bg = c.none },
 
 		PreProc = { fg = c.grey_davy, bg = c.none },
 
@@ -166,6 +166,7 @@ function M.hl(c)
 		["@label.json"] = { fg = c.dim_grey, bg = c.none },
 		["@label.jsonc"] = { fg = c.dim_grey, bg = c.none },
 		["@tag.html"] = { fg = c.dim_grey, bg = c.none },
+		["@method"] = { fg = c.white_dust2 },
 
 		["@lsp.type.class.java"] = { bold = true },
 
@@ -179,6 +180,8 @@ function M.hl(c)
 
 		["protoFloat"] = { fg = c.white_dust3 },
 		["@comment.note"] = { fg = c.yellow_candle },
+		["type_identifier"] = { fg = c.yellow_candle },
+		["luaTableBlock"] = { fg = c.yellow_candle },
 	}
 
 	return group

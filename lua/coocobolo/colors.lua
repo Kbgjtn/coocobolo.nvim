@@ -29,12 +29,19 @@ M.base = {
 	grey_smokey = "#707070",
 	grey_slate = "#BAB8B4",
 
-	green_shadow = "#95C0C3",
+	green_shadow = "#898B55",
 	green_meadow = "#71AC1E",
 	green_meadow2 = "#95C92C",
 	green_dull = "#D9D930",
+	green_toska = "#5DE4C7",
+
+	grape = "#B9C0EA",
 
 	red_orange = "#F26E5A",
+
+	blue_deepsky = "#00BFFF",
+	blue_lowkey = "#B5CBCC",
+	blue_lowkey2 = "#BECDDB",
 
 	yellow_sunglow = "#FFC436",
 	yellow_sunglow_dim = "#FFD05E",
