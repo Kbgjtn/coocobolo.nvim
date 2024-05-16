@@ -4,7 +4,7 @@ function M.hl(c)
 	local group = {
 		Normal = { fg = c.grey_gravel, bg = c.dark_onxy },
 
-		-- todo: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
+		-- TODO: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
 		NormalNC = { fg = c.dark_gravel, bg = c.dark_onxy },
 
 		NormalFloat = { fg = c.grey_gravel },
@@ -56,11 +56,11 @@ function M.hl(c)
 		FoldColumn = { fg = c.dark_rangoon, bg = c.none },
 
 		-- CODE
-		Function = { fg = c.white_dust2, bg = c.none },
+		Function = { fg = c.yellow_candle, bg = c.none },
 
-		Operator = { fg = c.grey_smokey, bg = c.none },
+		Operator = { fg = c.grey_davy, bg = c.none },
 
-		Identifier = { fg = c.grey_smokey, bg = c.none },
+		Identifier = { fg = c.red_orange, bg = c.none },
 
 		String = { fg = c.grey_davy, bg = c.none },
 
@@ -78,15 +78,15 @@ function M.hl(c)
 
 		Special = { fg = c.grey_davy, bg = c.none },
 
-		Todo = { fg = c.grey_gravel, bg = c.dark_eerie, bold = true },
+		Todo = { fg = c.white_dust2, bold = false },
 
 		NonText = { fg = c.grey_davy, bg = c.none },
 
-		Type = { fg = c.grey_smokey, bg = c.none },
+		Type = { fg = c.white_dust2, bg = c.none },
 
 		Title = { fg = c.dark_gravelest, bg = c.none, bold = true },
 
-		Statement = { fg = c.blue_lowkey2, bg = c.none },
+		Statement = { fg = c.grey_gravel, bg = c.none },
 
 		Constant = { fg = c.grey_davy, bg = c.none },
 

@@ -11,6 +11,7 @@ M.base = {
 	dark_grey = "#353535",
 	dark_dune = "#474747",
 
+	white_dust0 = "#e2e1e0",
 	white_dust = "#9F9C9A",
 	white_dust2 = "#8E8C8A",
 	white_dust3 = "#7E7C7B",
@@ -23,9 +24,11 @@ M.base = {
 	yellow_naples = "#FFD05E",
 	yellow_naples_90 = "#ffe099",
 
+	grey_corporate = "#5C5C5C",
+	grey_simple = "#676765",
 	grey_davy = "#555555",
 	dim_grey = "#606060",
-	grey_gravel = "#45454A",
+	grey_gravel = "#484848",
 	grey_smokey = "#707070",
 	grey_slate = "#BAB8B4",
 
@@ -34,11 +37,18 @@ M.base = {
 	green_meadow2 = "#95C92C",
 	green_dull = "#D9D930",
 	green_toska = "#5DE4C7",
+	green_emerald = "#4ADE80",
+	green_payton = "#81BE83",
 
 	grape = "#B9C0EA",
 
 	red_orange = "#F26E5A",
 
+	grape_elsie = "#D79FC7",
+	grape_elsie2 = "#564050",
+
+	blue_nokia = "#5A75A6",
+	blue_light_teal = "#B1CCC5",
 	blue_deepsky = "#00BFFF",
 	blue_lowkey = "#B5CBCC",
 	blue_lowkey2 = "#BECDDB",
