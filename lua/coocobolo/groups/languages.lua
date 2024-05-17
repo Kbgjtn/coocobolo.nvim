@@ -41,7 +41,6 @@ function M.hl(c)
 		["goEscapeC"] = { fg = c.grey_corporate },
 
 		--[[ 
-
            goRepeat       xxx links to Repeat
            goType         xxx links to Type
            goSignedInts   xxx links to Type
@@ -114,10 +113,23 @@ function M.hl(c)
 
       ]]
 
+		["luaTableBlock"] = { fg = c.grey_gravel },
+		["luaStatement"] = { fg = c.red_orange },
+		["luaFunction"] = { fg = c.white_dust2 },
+		["luaFunctionBlock"] = { fg = c.grey_corporate },
+		["@lsp.type.method.lua"] = { fg = c.grey_corporate },
+		["@lsp.type.property.lua"] = { fg = c.grey_smokey },
+		["@lsp.type.variable.lua"] = { fg = c.grey_slate },
+
+		-- yaml
+		["yamlBlockCollectionItemStart"] = { fg = c.green_payton },
+		["yamlPlainScalar"] = { fg = c.grey_gravel },
+		["yamlKeyValueDelimiter"] = { fg = c.dark_dune },
+
 		TelescopeSelection = { bg = c.dark_rangoon, fg = c.none },
 		["@lsp"] = { fg = c.grey_smokey },
-		["@lsp.type.property.lua"] = { fg = c.white_dust2 },
-		["@lsp.type.method.lua"] = { fg = c.shocking_orange },
+		-- ["@lsp.type.property.lua"] = { fg = c.white_dust2 },
+		-- ["@lsp.type.method.lua"] = { fg = c.shocking_orange },
 	}
 end
 return M

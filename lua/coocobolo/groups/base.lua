@@ -21,9 +21,9 @@ function M.hl(c)
 
 		TermCursor = { bg = c.dark_rangoon, fg = c.green_meadow },
 
-		cursorlinenr = { fg = c.shocking_orange, bg = c.none, bold = true },
+		cursorlinenr = { fg = c.dark_grey, bg = c.none, bold = true },
 
-		CurSearch = { fg = c.green_meadow, bg = c.none, bold = true },
+		CurSearch = { fg = c.grape_elsie, bg = c.none, bold = true },
 
 		SignColumn = { fg = c.dark_onxy, bg = c.dark_onxy },
 
@@ -47,9 +47,9 @@ function M.hl(c)
 
 		Question = { fg = c.dark_gravel, bg = c.dark_eerie },
 
-		Search = { fg = c.orange_chrome, bg = c.dark_rangoon },
+		Search = { fg = c.white_dust0, bg = c.dark_rangoon },
 
-		IncSearch = { fg = c.yellow_naples, bg = c.none, bold = true },
+		IncSearch = { fg = c.red_orange, bg = c.none, bold = true },
 
 		Folded = { fg = c.dark_thunder, bg = c.none },
 
@@ -60,7 +60,7 @@ function M.hl(c)
 
 		Operator = { fg = c.grey_davy, bg = c.none },
 
-		Identifier = { fg = c.red_orange, bg = c.none },
+		Identifier = { fg = c.white_dust2, bg = c.none },
 
 		String = { fg = c.grey_davy, bg = c.none },
 
