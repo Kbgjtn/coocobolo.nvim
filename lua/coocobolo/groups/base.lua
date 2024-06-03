@@ -35,7 +35,7 @@ function M.hl(c)
 
 		EndOfBuffer = { fg = c.dark_onxy, bg = c.none },
 
-		MsgArea = { fg = c.dark_gravelest, bg = c.dark_onxy, bold = true },
+		MsgArea = { fg = c.dark_gravelest, bg = c.dark_onxy, bold = false },
 
 		ModeMsg = { fg = c.dark_gravel, bg = c.dark_onxy },
 
@@ -56,7 +56,7 @@ function M.hl(c)
 		FoldColumn = { fg = c.dark_rangoon, bg = c.none },
 
 		-- CODE
-		Function = { fg = c.yellow_candle, bg = c.none },
+		Function = { fg = c.grey_smokey, bg = c.none },
 
 		Operator = { fg = c.grey_davy, bg = c.none },
 
@@ -72,7 +72,7 @@ function M.hl(c)
 
 		Comment = { fg = c.dark_grey, bg = c.none },
 
-		Keyword = { fg = c.shocking_orange, bg = c.none },
+		Keyword = { fg = c.grey_simple, bg = c.none },
 
 		Repeat = { fg = c.green_dull, bg = c.none },
 
@@ -132,30 +132,17 @@ function M.hl(c)
 
 		VertSplit = { bg = c.dark_onxy, fg = c.dark_onxy },
 
+		WinSeparator = { bg = c.dark_onxy, fg = c.dark_jungle2 },
+
 		StatusLine = { bg = c.dark_eerie, fg = c.dark_eerie },
 
 		StatusLineNC = { bg = c.dark_eerie, fg = c.dark_eerie },
 
 		StatusLineTerm = { bg = c.dark_eerie, fg = c.dark_eerie },
 
-		-- Telescope
-		TelescopeBorder = { bg = c.none, fg = c.dark_jungle2 },
-
-		TelescopeMatching = { fg = c.shocking_orange },
-
-		TelescopeNormal = { bg = c.none },
-
-		TelescopePreviewTitle = { bg = c.none, fg = c.grey_davy },
-
-		TelescopePromptTitle = { bg = c.none, fg = c.grey_davy },
-
-		TelescopePromptPrefix = { bg = c.none, fg = c.grey_davy },
-
-		TelescopeResultsTitle = { bg = c.none, fg = c.grey_davy },
-
-		TelescopeSelectionCaret = { fg = c.shocking_orange },
-
-		TelescopeSelection = { bg = c.dark_rangoon, fg = c.none },
+		DiagnosticOk = { bg = c.none, fg = c.grey_smokey },
+		DiagnosticError = { bg = c.none, fg = c.red_orange },
+		DiagnosticWarn = { bg = c.none, fg = c.orange_chrome },
 
 		["@keyword.return.lua"] = { fg = c.grey_smokey, bg = c.none, bold = true },
 		["@keyword.return.go"] = { fg = c.grey_smokey, bg = c.none, bold = true },
@@ -167,6 +154,7 @@ function M.hl(c)
 		["@label.jsonc"] = { fg = c.dim_grey, bg = c.none },
 		["@tag.html"] = { fg = c.dim_grey, bg = c.none },
 		["@method"] = { fg = c.white_dust2 },
+		["@variable"] = { fg = c.white_dust2 },
 
 		["@lsp.type.class.java"] = { bold = true },
 

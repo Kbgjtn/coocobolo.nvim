@@ -121,6 +121,8 @@ function M.hl(c)
 		["@lsp.type.property.lua"] = { fg = c.grey_smokey },
 		["@lsp.type.variable.lua"] = { fg = c.grey_slate },
 
+		["typescriptBraces"] = { fg = c.grey_slate },
+
 		-- yaml
 		["yamlBlockCollectionItemStart"] = { fg = c.green_payton },
 		["yamlPlainScalar"] = { fg = c.grey_gravel },

@@ -1,0 +1,45 @@
+local M = {}
+
+function M.hl(c)
+	return {
+		["goParen"] = { fg = c.yellow_candle },
+		["goPackage"] = { fg = c.grey_smokey },
+		["goImport"] = { fg = c.grey_smokey },
+		["goImportString"] = { fg = c.grey_davy },
+		["goLabel"] = { fg = c.blue_lowkey },
+		["goRepeat"] = { fg = c.white_dust2 },
+		["goVar"] = { fg = c.grey_corporate },
+		["goDeclaration"] = { fg = c.grey_simple },
+		["goConditional"] = { fg = c.white_dust3 },
+		["goFunctionReturn"] = { fg = c.white_dust2 },
+		["goFunction"] = { fg = c.white_dust2 },
+		["goFunctionCall"] = { fg = c.red_orange },
+		["goConst"] = { fg = c.grey_corporate },
+		["goStatement"] = { fg = c.grey_smokey },
+		["goType"] = { fg = c.grey_simple },
+		["goExtraType"] = { fg = c.yellow_sunglow_dim },
+		["goPredefinedIdentifiers"] = { fg = c.white_dust3 },
+		["goTypeName"] = { fg = c.shocking_orange },
+		["goBlock"] = { fg = c.grey_davy },
+		["goSingleDecl"] = { fg = c.grey_corporate },
+		["goDeclType"] = { fg = c.grey_simple },
+		["goGenerate"] = { fg = c.shocking_orange },
+		["goGenerateVariables"] = { fg = c.yellow_candle },
+		["goSpecialString"] = { fg = c.white_dust3 },
+		["goBuiltins"] = { fg = c.white_dust2 },
+		["goBuildDirectives"] = { fg = c.blue_deepsky },
+		["goParamName"] = { fg = c.grape },
+		["goParamType"] = { fg = c.grape },
+		["goBuildKeyword"] = { fg = c.grape },
+		["goOperator"] = { fg = c.white_dust2 },
+		["goTypeConstructor"] = { fg = c.grape },
+		["goReceiverVar"] = { fg = c.white_dust2 },
+		["goReceiver"] = { fg = c.grape },
+		["goSignedInts"] = { fg = c.white_dust3 },
+		["goUnsignedInts"] = { fg = c.white_dust3 },
+		["goFormatSpecifier"] = { fg = c.grey_corporate },
+		["goEscapeC"] = { fg = c.grey_corporate },
+	}
+end
+
+return M

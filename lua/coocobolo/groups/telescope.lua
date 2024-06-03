@@ -4,7 +4,7 @@ function M.hl(c)
 	return {
 		TelescopeBorder = { bg = c.none, fg = c.dark_jungle2 },
 
-		TelescopeMatching = { fg = c.shocking_orange },
+		TelescopeMatching = { fg = c.white_dust3 },
 
 		TelescopeNormal = { bg = c.dark_onxy },
 
@@ -16,7 +16,7 @@ function M.hl(c)
 
 		TelescopeResultsTitle = { bg = c.none, fg = c.grey_davy },
 
-		TelescopeSelectionCaret = { fg = c.shocking_orange },
+		TelescopeSelectionCaret = { fg = c.grey_smokey },
 
 		TelescopeSelection = { bg = c.dark_rangoon, fg = c.none },
 	}
