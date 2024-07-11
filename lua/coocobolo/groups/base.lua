@@ -2,12 +2,12 @@ local M = {}
 
 function M.hl(c)
 	local group = {
-		Normal = { fg = c.grey_gravel, bg = c.dark_onxy },
+		Normal = { fg = c.grey_simple, bg = c.dark_onxy },
 
 		-- TODO: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
 		NormalNC = { fg = c.dark_gravel, bg = c.dark_onxy },
 
-		NormalFloat = { fg = c.grey_gravel },
+		NormalFloat = { fg = c.grey_gravel, bg = c.dark_onxy },
 
 		-- visual mode
 		Visual = { fg = c.none, bg = c.dark_rangoon, bold = true },
@@ -132,7 +132,7 @@ function M.hl(c)
 
 		VertSplit = { bg = c.dark_onxy, fg = c.dark_onxy },
 
-		WinSeparator = { bg = c.dark_onxy, fg = c.dark_jungle2 },
+		WinSeparator = { bg = c.dark_onxy, fg = c.dark_onxy },
 
 		StatusLine = { bg = c.dark_eerie, fg = c.dark_eerie },
 

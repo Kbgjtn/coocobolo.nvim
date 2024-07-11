@@ -2,6 +2,7 @@ local M = {}
 
 M.base = {
 	none = "NONE",
+	dark_erie = "#1B1B1B",
 	dark_onxy = "#101010",
 	dark_eerie = "#1A1A1A",
 	dark_rangoon = "#191919",
