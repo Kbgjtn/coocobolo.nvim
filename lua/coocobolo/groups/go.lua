@@ -2,6 +2,7 @@ local M = {}
 
 function M.hl(c)
 	return {
+		["goPointerOperator"] = { fg = c.yellow_candle },
 		["goParen"] = { fg = c.yellow_candle },
 		["goPackage"] = { fg = c.white_dust2 },
 		["goImport"] = { fg = c.white_dust2 },
