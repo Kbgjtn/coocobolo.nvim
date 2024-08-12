@@ -10,14 +10,14 @@ function M.hl(c)
 		NormalFloat = { fg = c.grey_gravel, bg = c.dark_onxy },
 
 		-- visual mode
-		Visual = { fg = c.none, bg = c.dark_rangoon, bold = true },
+		Visual = { fg = c.none, bg = c.dark_eerie, bold = true },
 
 		-- Cursor
-		Cursor = { bg = c.dark_grey },
+		Cursor = { bg = c.dark_thunder, fg = c.none },
 
 		lCursor = { fg = c.red_orange, bg = c.dark_grey, bold = true },
 
-		CursorLine = { bg = c.dark_rangoon, fg = c.none },
+		CursorLine = { bg = c.dark_eerie, fg = c.none },
 
 		TermCursor = { bg = c.dark_rangoon, fg = c.green_meadow },
 

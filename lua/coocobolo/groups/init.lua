@@ -3,6 +3,7 @@ return {
 	require("coocobolo.groups.go"),
 	require("coocobolo.groups.dap-ui"),
 	require("coocobolo.groups.neotest"),
+	require("coocobolo.groups.coverage"),
 	require("coocobolo.groups.gitsigns"),
 	require("coocobolo.groups.telescope"),
 }
