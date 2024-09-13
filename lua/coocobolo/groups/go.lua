@@ -39,7 +39,9 @@ function M.hl(c)
 		["goReceiver"] = { fg = c.grape },
 		["goSignedInts"] = { fg = c.white_dust3 },
 		["goUnsignedInts"] = { fg = c.white_dust3 },
-		["goFormatSpecifier"] = { fg = c.grey_corporate },
+		["goFormatSpecifier"] = { fg = c.grey_smokey },
+		["goString"] = { fg = c.grey_corporate },
+		["goDecimalInt"] = { fg = c.white_dust },
 		["goEscapeC"] = { fg = c.grey_corporate },
 	}
 end
