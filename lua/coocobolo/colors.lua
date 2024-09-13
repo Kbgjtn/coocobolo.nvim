@@ -38,9 +38,10 @@ M.base = {
 	green_meadow2 = "#95C92C",
 	green_dull = "#D9D930",
 	green_toska = "#5DE4C7",
-	green_emerald = "#4ADE80",
+	green_emerald = "#50C878",
 	green_payton = "#81BE83",
 	green_limerick = "#A5BE00",
+	green_neon = "#9ACD32",
 
 	grape = "#B9C0EA",
 
