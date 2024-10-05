@@ -16,10 +16,11 @@ use "kbgjtn/coocobolo.nvim"
 }
 
 ```
+
 ## Preview
 
-![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/Screenshot%20From%202024-09-14%2003-55-22.png)
-![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/Screenshot%20From%202024-09-14%2003-55-43.png)
-![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/Screenshot%20From%202024-09-14%2003-55-56.png)
-![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/Screenshot%20From%202024-09-14%2003-58-32.png)
-![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/Screenshot%20From%202024-09-14%2003-58-58.png)
+![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/1.png)
+![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/2.png)
+![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/3.png)
+![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/4.png)
+![alt text](https://github.com/Kbgjtn/coocobolo.nvim/blob/main/images/5.png)
