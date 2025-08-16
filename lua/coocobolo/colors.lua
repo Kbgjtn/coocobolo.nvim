@@ -2,8 +2,10 @@ local M = {}
 
 M.base = {
 	none = "NONE",
+	dark_black = "#000000",
 	dark_erie = "#1B1B1B",
 	dark_onxy = "#101010",
+	dark_onxy2 = "#171717",
 	dark_eerie = "#1A1A1A",
 	dark_rangoon = "#191919",
 	dark_jungle = "#202020",
@@ -21,6 +23,7 @@ M.base = {
 	orange_blush = "#EEA190",
 	shocking_orange = "#E0654A",
 
+	yellow_coral = "#FAEA48",
 	yellow_candle = "#FFC436",
 	yellow_naples = "#FFD05E",
 	yellow_naples_90 = "#ffe099",
@@ -42,10 +45,12 @@ M.base = {
 	green_payton = "#81BE83",
 	green_limerick = "#A5BE00",
 	green_neon = "#9ACD32",
+	green_coral = "#82CD47",
 
 	grape = "#B9C0EA",
 
 	red_orange = "#F26E5A",
+	red_coral = "#FF4545",
 
 	grape_elsie = "#D79FC7",
 	grape_elsie2 = "#564050",

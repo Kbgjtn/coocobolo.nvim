@@ -4,7 +4,7 @@ function M.hl(c)
 	return {
 		["GitSignsAdd"] = { fg = c.green_neon },
 		["GitSignsChange"] = { fg = c.grey_simple },
-		["GitSignsDelete"] = { fg = c.dark_thunder },
+		["GitSignsDelete"] = { fg = c.red_coral },
 
 		DiffChange = { fg = c.yellow_naples, bg = c.none },
 		DiffAdd = { fg = c.green_meadow2 },
