@@ -2,7 +2,7 @@ local M = {}
 
 function M.hl(c)
 	local group = {
-		Normal = { fg = c.grey_simple, bg = c.dark_black },
+		Normal = { fg = c.grey_simple, bg = c.none },
 
 		-- TODO: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
 		NormalNC = { fg = c.dark_gravel, bg = c.dark_black },
@@ -21,7 +21,7 @@ function M.hl(c)
 
 		TermCursor = { fg = c.green_meadow, bg = c.dark_rangoon },
 
-		cursorlinenr = { fg = c.dark_grey, bg = c.none, bold = true },
+		cursorlinenr = { fg = c.dark_grey, bg = c.dark_black, bold = true },
 
 		CurSearch = { fg = c.grape_elsie, bg = c.none, bold = true },
 
