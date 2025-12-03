@@ -47,6 +47,10 @@ M.base = {
 	green_neon = "#9ACD32",
 	green_coral = "#82CD47",
 
+	darkolivegreen = "#5a5e48",
+
+	yellowgreen = "#95C92C",
+
 	grape = "#B9C0EA",
 
 	red_orange = "#F26E5A",
@@ -55,19 +59,32 @@ M.base = {
 	grape_elsie = "#D79FC7",
 	grape_elsie2 = "#564050",
 
-	blue_nokia = "#5A75A6",
 	blue_light_teal = "#B1CCC5",
 	blue_deepsky = "#00BFFF",
+	blue_deepsky_30 = "#2084af",
+
 	blue_lowkey = "#B5CBCC",
 	blue_lowkey2 = "#BECDDB",
 
 	yellow_sunglow = "#FFC436",
+	goldenrod = "#FFC436",
 	yellow_sunglow_dim = "#FFD05E",
-	yellow_soft = "#FFD099",
 
 	orange_beer = "#FB8B24",
 	orange_chinese = "#FFB000",
 	orange_soft = "#F3B664",
+
+	neutral_10 = "#ffffff",
+	neutral_15 = "#8c898c",
+	neutral_20 = "#555554",
+	neutral_30 = "#444443",
+	neutral_40 = "#343433",
+	neutral_50 = "#252524",
+	neutral_60 = "#161616",
+
+	crimson_95 = "#d22737",
+	crimson_40 = "#e3635f",
+	crimson_25 = "#882326",
 }
 
 local merge = function(a, b)
@@ -81,14 +98,24 @@ local merge = function(a, b)
 	return c
 end
 
-M.dark_palette = {}
-M.colorful_palette = {}
+M.dark_palette = {
+	bg = M.base.dark_black,
+	fg = M.base.neutral_30,
+	primary = M.base.neutral_60,
+	primary_2 = M.base.dark_grey,
+	primary_3 = M.base.white_dust3,
+	primary_4 = M.base.white_dust2,
+	primary_5 = M.base.white_dust,
+	primary_6 = M.base.white_dust0,
+}
+
+M.colorful_palette = {
+	bg = M.base.white_dust3,
+	fg = M.base.dark_black,
+	primary = M.base.dark_grey,
+}
 
 M.dark_palette = merge(M.base, M.dark_palette)
-M.colorful_palette = merge(M.base, M.dark_palette)
-
-M.dark_group = {
-	Normal = { fg = M.base.red_orange, bg = M.base.dark_grey },
-}
+M.colorful_palette = merge(M.base, M.colorful_palette)
 
 return M
