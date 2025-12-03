@@ -2,23 +2,23 @@ local M = {}
 
 function M.hl(c)
 	return {
-		TelescopeBorder = { bg = c.none, fg = c.dark_jungle2 },
+		TelescopeBorder = { bg = c.dark_black, fg = c.dark_jungle2 },
 
 		TelescopeMatching = { fg = c.white_dust3 },
 
-		TelescopeNormal = { bg = c.dark_onxy },
+		TelescopeNormal = { bg = c.dark_black },
 
-		TelescopePreviewTitle = { bg = c.none, fg = c.grey_davy },
+		TelescopePreviewTitle = { bg = c.dark_black, fg = c.grey_davy },
 
-		TelescopePromptTitle = { bg = c.none, fg = c.grey_davy },
+		TelescopePromptTitle = { bg = c.dark_black, fg = c.grey_davy },
 
-		TelescopePromptPrefix = { bg = c.none, fg = c.grey_davy },
+		TelescopePromptPrefix = { bg = c.dark_black, fg = c.grey_davy },
 
-		TelescopeResultsTitle = { bg = c.none, fg = c.grey_davy },
+		TelescopeResultsTitle = { bg = c.dark_black, fg = c.grey_davy },
 
-		TelescopeSelectionCaret = { fg = c.grey_smokey },
+		TelescopeSelectionCaret = { fg = c.dark_jungle2, bg = c.dark_black },
 
-		TelescopeSelection = { bg = c.dark_rangoon, fg = c.none },
+		TelescopeSelection = { bg = c.dark_onxy, fg = c.none },
 	}
 end
 return M

@@ -2,8 +2,8 @@ local M = {}
 
 function M.hl(c)
 	return {
-		["GitSignsAdd"] = { fg = c.green_neon },
-		["GitSignsChange"] = { fg = c.grey_simple },
+		["GitSignsAdd"] = { fg = c.green_dull, bold = false },
+		["GitSignsChange"] = { fg = c.dark_jungle },
 		["GitSignsDelete"] = { fg = c.red_coral },
 
 		DiffChange = { fg = c.yellow_naples, bg = c.none },

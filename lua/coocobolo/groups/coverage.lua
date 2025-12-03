@@ -1,11 +1,11 @@
 local M = {}
 
-function M.hl(c)
+function M.hl(p)
 	return {
-		["CoverageCovered"] = { fg = c.green_neon },
-		["CoverageUncovered"] = { fg = c.dark_jungle2, bold = true },
-		["CoverageSummaryHeader"] = { fg = c.grey_corporate },
-		["CoverageSummaryFail"] = { fg = c.grey_corporate },
+		["CoverageCovered"] = { fg = p.fg },
+		["CoverageUncovered"] = { fg = p.fg, bold = true },
+		["CoverageSummaryHeader"] = { fg = p.fg },
+		["CoverageSummaryFail"] = { fg = p.fg },
 	}
 end
 
