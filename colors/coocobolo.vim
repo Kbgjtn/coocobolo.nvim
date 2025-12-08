@@ -1,4 +1,6 @@
 lua << EOF
    local coocobolo = require("coocobolo")
-   coocobolo.setup()
+   coocobolo.setup({
+      theme = "dark"
+   })
 EOF
