@@ -2,19 +2,32 @@ local cfg = require("coocobolo.config")
 
 local M = {}
 
+-- table of accent colors to choose from
+local accents = {
+	"#7A7B4C", -- green
+	"#E3635F", -- red
+	"#FFD93D", -- yellow
+	"#00BFFF", -- blue
+	"#D79FC7", -- purple
+	"#00CED1", -- teal
+	"#FFB000", -- orange
+	"#FF8DA1", -- pink
+}
+
 M.base_options = {
-	transparent = true,
 	terminal_colors = true,
-	styles = {
-		comments = { bold = false, italic = false },
-		keywords = { bold = true, italic = false },
-		functions = { bold = true, italic = false },
-		variables = { bold = false, italic = false },
-	},
 	dim_inactive = false,
 	theme = "dark",
-	default_background = true,
 	palette = {},
+	highlights = {},
+	clear_status_line = false,
+	accent = {
+		colors = accents, -- default accent color
+		default = "#71AC1E",
+		randomize = false,
+		current = nil, -- startup
+	},
+	enable_yank_highlight = true,
 }
 
 function M.setup(options)
