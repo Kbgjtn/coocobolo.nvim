@@ -1,198 +1,286 @@
 local M = {}
 
-function M.hl(p)
-	local group = {
-		Normal = { fg = p.grey_simple, bg = p.dark_black },
+local function hex_to_dec(hex)
+	hex = hex:gsub("#", "")
+	return tonumber(hex, 16)
+end
 
-		-- TODO: if opts.dim_inactive then bg = chinese_dim, if not then bg = chinese
-		NormalNC = { fg = p.dark_gravel, bg = p.dark_black },
+local function base(p)
+	return {
+		Normal = { bg = p.bg, fg = p.fg },
 
-		NormalFloat = { fg = p.grey_gravel, bg = p.dark_black },
+		Visual = { fg = p.none, bold = true, bg = p.primary },
 
-		-- visual mode
-		Visual = { fg = p.none, bg = p.dark_eerie, bold = true },
+		YankHighlight = { fg = p.primary_5, bold = true },
 
-		Bold = { bold = true },
+		lCursor = { fg = p.none, bg = p.none },
 
-		["@spell"] = { fg = p.neutral_20 },
+		TermCursor = { fg = p.none, bg = p.accent },
 
-		-- Cursor
-		Cursor = { bg = p.dark_jungle, fg = p.dark_black },
+		Cursor = { fg = p.red, bg = p.accent },
 
-		lCursor = { fg = p.red_orange, bg = p.dark_black, bold = true },
+		CursorColumn = { fg = p.none, bg = p.primary },
 
-		CursorLine = { fg = p.none, bg = p.dark_onxy },
+		CursorIM = { fg = p.none },
 
-		TermCursor = { fg = p.green_meadow, bg = p.dark_rangoon },
+		CursorLine = { fg = p.none, bg = p.primary },
 
-		cursorlinenr = { fg = p.dark_grey, bg = p.dark_black, bold = true },
+		CursorLineSign = { fg = p.bg },
 
-		CurSearch = { fg = p.grape_elsie, bg = p.none, bold = true },
+		SignColumn = { fg = p.fg, bg = p.bg },
 
-		SignColumn = { fg = p.dark_black, bg = p.none },
+		CursorLineNr = { fg = p.accent },
 
-		CursorLineSign = { fg = p.dark_black, bg = p.none },
+		CursorLineFold = { fg = p.accent },
 
-		SignalSign = { fg = p.dark_black, bg = p.none },
+		EndOfBuffer = { fg = p.bg, bg = p.bg },
 
-		LineNr = { fg = p.dark_jungle, bg = p.dark_black },
+		Title = { fg = p.primary_4, bold = true },
 
-		EndOfBuffer = { fg = p.dark_black, bg = p.none },
+		Bold = { bold = true, fg = p.primary_4 },
 
-		MsgArea = { fg = p.dark_gravelest, bg = p.dark_black, bold = false },
+		LineNr = { fg = p.primary_2, bg = p.bg },
 
-		ModeMsg = { fg = p.dark_gravel, bg = p.dark_black },
+		FloatBorder = { bold = true, fg = p.primary },
 
-		MoreMsg = { fg = p.white_dust, bg = p.dark_black },
+		FloatTitle = { fg = p.primary_2 },
 
-		Exception = { fg = p.white_dust2, bg = p.dark_black },
+		StatusLine = { bg = p.bg, fg = p.fg },
 
-		MsgSeparator = { fg = p.dim_grey, bg = p.dark_black, bold = true },
+		TabLine = { bg = p.bg, fg = p.fg },
 
-		Question = { fg = p.dark_gravel, bg = p.dark_eerie },
+		TabLineSel = { bg = p.bg, fg = p.primary_3 },
 
-		Search = { fg = p.white_dust0, bg = p.dark_rangoon },
+		TabLineFill = { bg = p.bg, fg = p.primary_3 },
 
-		IncSearch = { fg = p.red_orange, bg = p.none, bold = true },
+		StatusLineNC = { bg = p.bg, fg = p.fg },
 
-		Folded = { fg = p.dark_thunder, bg = p.none },
+		StatusLineTerm = { bg = p.bg, fg = p.fg },
 
-		FoldColumn = { fg = p.dark_rangoon, bg = p.none },
+		VertSplit = { bg = p.bg, fg = p.bg },
 
-		-- CODE
-		Function = { fg = p.grey_simple, bg = p.none },
+		Directory = { fg = p.primary_3 },
 
-		Operator = { fg = p.grey_davy, bg = p.none },
+		WinSeparator = { bg = p.bg, fg = p.bg },
 
-		Identifier = { fg = p.white_dust2, bg = p.none },
+		Error = { fg = p.red },
 
-		String = { fg = p.grey_davy, bg = p.none },
+		ErrorMsg = { fg = p.red },
 
-		Delimiter = { fg = p.dark_dune, bg = p.none },
+		WarningMsg = { fg = p.yellow },
 
-		Number = { fg = p.grey_simple, bg = p.none },
+		Todo = { fg = p.primary_6 },
 
-		Boolean = { fg = p.grey_davy, bg = p.none },
+		Directory = { fg = p.primary_3 },
 
-		Comment = {
-			-- fg = c.dark_dune,
-			fg = p.neutral_40,
-			bg = p.none,
-		},
+		CurSearch = { fg = p.accent, bg = p.none, bold = true },
 
-		Keyword = { fg = p.grey_davy, bg = p.none },
+		Search = { fg = p.accent, bg = p.none },
 
-		Repeat = { fg = p.green_dull, bg = p.none },
+		IncSearch = { fg = p.accent, bold = true },
 
-		Special = { fg = p.grey_davy, bg = p.none },
+		Folded = { fg = p.primary_2, bold = true },
 
-		Todo = { fg = p.neutral_30, bold = true },
+		FoldColumn = { fg = p.primary_2 },
 
-		NonText = { fg = p.grey_davy, bg = p.none },
+		ModeMsg = { fg = p.accent },
 
-		Type = { fg = p.white_dust3, bg = p.none },
+		MoreMsg = { fg = p.accent },
 
-		Title = { fg = p.dark_gravelest, bg = p.none, bold = true },
+		Question = { fg = p.primary_2 },
 
-		Statement = { fg = p.grey_gravel, bg = p.none },
+		NormalFloat = { bg = p.bg },
 
-		Constant = { fg = p.grey_davy, bg = p.none },
-
-		PreProc = { fg = p.grey_davy, bg = p.none },
-
-		Conceal = { fg = p.white_dust3, bg = p.none },
-
-		Underlined = { fg = p.blue_meadow, bg = p.none },
-
-		Italic = { fg = p.grey_davy, bg = p.none, italic = true },
-
-		SpecialKey = { fg = p.grey_davy, bg = p.none },
-
-		Directory = { fg = p.dim_grey, bg = p.none, bold = true },
-
-		Error = { fg = p.shocking_orange, bg = p.none },
-
-		ErrorMsg = { fg = p.shocking_orange, bg = p.none },
-
-		DiagnosticUnderlineWarn = { fg = p.orange_chinese, bg = p.none, underline = true },
-
-		DiagnosticUnderlineError = { fg = p.shocking_orange, bg = p.none, underline = true },
-
-		DiagnosticUnderlineHint = { fg = p.goldenrod, bg = p.none, underline = true },
-
-		FloatTitle = { fg = p.grey_smokey, bg = p.dust_white },
-
-		FloatBorder = { fg = p.dark_eerie, bg = p.none },
-
-		FloatShadow = { fg = p.dark_eerie, bg = p.none },
-
-		FloatShadowThrough = { fg = p.dark_eerie, bg = p.none },
-
-		WildMenu = { bg = p.dark_eerie, fg = p.yellow_naples },
-
-		WildMenuSelected = { bg = p.dark_eerie, fg = p.yellow_naples },
-
-		Pmenu = { fg = p.dark_grey, bg = p.dark_black },
-
-		PmenuSel = { fg = p.red_orange, bg = p.dark_onxy, bold = true },
-
-		PmenuSbar = { bg = p.none },
+		Pmenu = { bg = p.none },
 
 		PmenuThumb = { bg = p.none },
 
-		PmenuBorder = { fg = p.dark_eerie, bg = p.none },
-
-		PopupWindowBorder = { fg = p.dark_black, bg = p.none },
-
-		VertSplit = { bg = p.dark_black, fg = p.dark_black },
-
-		WinSeparator = { bg = p.dark_black, fg = p.dark_black },
-
-		StatusLine = { bg = p.dark_black, fg = p.dark_black },
-
-		StatusLineNC = { bg = p.dark_black, fg = p.dark_black },
-
-		StatusLineTerm = { bg = p.dark_black, fg = p.dark_black },
-
-		DiagnosticOk = { bg = p.none, fg = p.grey_smokey },
-
-		DiagnosticHint = { bg = p.none, fg = p.goldenrod },
-
-		DiagnosticError = { bg = p.none, fg = p.red_orange },
-
-		DiagnosticWarn = { bg = p.none, fg = p.orange_chrome },
-
-		["@keyword.return.lua"] = { fg = p.grey_smokey },
-
-		["@label.json"] = { fg = p.dim_grey, bg = p.none },
-		["@label.jsonc"] = { fg = p.dim_grey, bg = p.none },
-		["@tag.html"] = { fg = p.dim_grey, bg = p.none },
-		["@method"] = { fg = p.white_dust2 },
-		["@variable"] = { fg = p.grey_simple },
-
-		["@lsp.type.class.java"] = { bold = true },
-
-		["helpWarning"] = { fg = p.orange_chrome, bold = true },
-		["helpNote"] = { fg = p.yellow_candle, bold = true },
-
-		["shQuote"] = { fg = p.grey_davy },
-		["luaString"] = { fg = p.dark_onxy, link = "Constant" },
-
-		NvimInternalError = { fg = p.red_orange, bg = p.none, bold = true },
-
-		OilDir = { link = "Keyword" },
-		OilFile = { link = "Keyword" },
-		OilDirHidden = { link = "Keyword" },
-		OilFileHidden = { link = "Keyword" },
-
-		["protoFloat"] = { fg = p.white_dust3 },
-		["@comment.note"] = { fg = p.yellow_candle },
-		["type_identifier"] = { fg = p.yellow_candle },
-		["luaTableBlock"] = { fg = p.yellow_candle },
-		["SnippetTabstop"] = { bg = p.none },
+		PmenuSel = { bg = p.accent, fg = p.bg },
 	}
+end
 
-	return group
+local function codes(p)
+	return {
+		Type = { fg = p.primary_4 },
+		String = { fg = p.primary_3 },
+		Comment = { fg = p.primary_2 },
+		Special = { fg = p.primary_3 },
+		Constant = { fg = p.primary_3 },
+		Statement = { fg = p.primary_4 },
+		["@variable"] = { fg = p.primary_3 },
+		["@markup.list.markdown"] = { bold = true },
+		Conceal = { fg = p.primary_3, bold = true },
+		Function = { fg = p.primary_5, bold = true },
+		Operator = { fg = p.primary_2, bold = true },
+		Delimiter = { fg = p.primary_2, bold = true },
+		Underlined = { fg = p.primary_3, underline = true },
+		Identifier = { fg = p.accent, bold = p.theme == "light" },
+	}
+end
+
+local function diagnostics(p)
+	return {
+		DiagnosticSignError = { fg = p.red },
+		DiagnosticHint = { fg = p.primary_4 },
+		DiagnosticSignWarn = { fg = p.yellow },
+		DiagnosticError = { fg = p.red, bg = p.none },
+		DiagnosticWarn = { fg = p.yellow, bg = p.none },
+		DiagnosticInfo = { fg = p.primary_6, bg = p.none },
+		DiagnosticVirtualTextError = { fg = p.red, bg = p.none },
+		DiagnosticVirtualLinesError = { fg = p.red, bg = p.none },
+		DiagnosticVirtualTextWarn = { fg = p.yellow, bg = p.none },
+		DiagnosticVirtualLinesWarn = { fg = p.yellow, bg = p.none },
+		DiagnosticUnderlineError = { undercurl = true, sp = hex_to_dec(p.red) },
+		DiagnosticUnderlineWarn = { undercurl = true, sp = hex_to_dec(p.yellow) },
+		DiagnosticUnnecessary = { fg = p.primary_2, undercurl = true, sp = p.primary_3 },
+	}
+end
+
+local function codes_go(p)
+	return {
+		["@module.go"] = { fg = p.primary_6 },
+		["@keyword.repeat.go"] = { fg = p.blue },
+		["@function.call.go"] = { bold = false },
+		["@keyword.function.go"] = { fg = p.red },
+		["@keyword.type.go"] = { fg = p.primary_3 },
+		["@function.builtin.go"] = { fg = p.yellow },
+		["@type.builtin.go"] = { fg = p.primary_5 },
+		["@boolean.go"] = { fg = p.yellow, bold = true },
+		["@variable.parameter.go"] = { fg = p.primary_4 },
+		["@keyword.conditional.go"] = { fg = p.primary_5 },
+		["@keyword.coroutine.go"] = { fg = p.blue, bold = true },
+		["@keyword.return.go"] = { fg = p.primary_6, bold = true },
+		["@type.definition.go"] = { fg = p.primary_5, bold = true },
+		["@keyword.import.go"] = { fg = p.theme == "dark" and p.primary_3 or p.accent },
+	}
+end
+
+local function codes_lua(p)
+	return {
+		["@keyword.lua"] = { fg = p.accent },
+		["@property.lua"] = { fg = p.primary_4 },
+		["@lsp.type.property.lua"] = { fg = p.primary_4 },
+		["@keyword.return.lua"] = { fg = p.primary_4, bold = true },
+	}
+end
+
+local function diff(p)
+	return {
+		Removed = { fg = p.red },
+		Added = { fg = p.accent },
+		DiffDelete = { fg = p.red },
+		DiffAdd = { fg = p.accent },
+		Changed = { fg = p.primary_2 },
+		DiffChange = { fg = p.primary_2 },
+	}
+end
+
+local function snippets(p)
+	return {
+		SnippetTabstop = { fg = p.none },
+	}
+end
+
+local function fzf_lua(p)
+	return {
+		FzfLuaTitle = { fg = p.fg },
+		FzfLuaFzfPrompt = { fg = p.fg },
+		FzfLuaTabTitle = { fg = p.blue },
+		FzfLuaBorder = { fg = p.primary },
+		FzfLuaHeaderText = { fg = p.red },
+		FzfLuaBufFlagAlt = { fg = p.blue },
+		FzfLuaBufNr = { fg = p.primary_4 },
+		FzfLuaTabMarker = { fg = p.yellow },
+		FzfLuaFzfInfo = { link = "Comment" },
+		FzfLuaPathLineNr = { fg = p.accent },
+		FzfLuaScrollFloatFull = { fg = p.fg },
+		FzfLuaScrollFloatEmpty = { fg = p.fg },
+		FzfLuaPathColNr = { fg = p.primary_4 },
+		FzfLuaFzfPointer = { fg = p.primary_3 },
+		FzfLuaLivePrompt = { fg = p.primary_4 },
+		FzfLuaHeaderBind = { fg = p.primary_5 },
+		FzfLuaSearch = { bg = p.none, fg = p.accent },
+		FzfLuaCursor = { bg = p.none, fg = p.accent },
+		FzfLuaFzfMatch = { bg = p.none, fg = p.accent },
+		FzfLuaCursorLine = { bg = p.none, fg = p.primary_3 },
+	}
+end
+
+local function oil(p)
+	return {
+		OilFile = { fg = p.primary_3 },
+	}
+end
+
+local function mason(p)
+	return {
+		MasonHighlight = { fg = p.accent },
+		MasonHeaderSecondary = { bg = p.primary },
+		MasonMuted = { fg = p.primary_2, bg = p.none },
+		MasonHighlightBlock = { fg = p.accent, bg = p.none },
+		MasonHighlightBlockBold = { fg = p.accent, bg = p.primary },
+		MasonHeader = { fg = p.primary_4, bg = p.bg, bold = true },
+		MasonHeading = { fg = p.primary_4, bg = p.bg, bold = true },
+		MasonMutedBlock = { bg = p.bg, fg = p.theme == "light" and p.bg or p.none },
+	}
+end
+
+local function lazy(p)
+	return {
+		LazySpecial = { fg = p.accent },
+		LazyButton = { bg = p.bg },
+		LazyButtonActive = { bg = p.primary, fg = p.accent },
+	}
+end
+
+local function fugitive(p)
+	return {
+		fugitiveHelpTag = { fg = p.accent },
+		fugitiveHeader = { bold = true },
+		fugitiveUntrackedHeading = { bold = true, fg = p.primary_3 },
+		fugitiveUnstagedHeading = { bold = true, fg = p.primary_4 },
+		fugitiveStagedHeading = { bold = true, fg = p.accent },
+		fugitiveCount = { fg = p.primary_4 },
+	}
+end
+
+function M.hl(p)
+	local groups = vim.tbl_deep_extend(
+		"force",
+		--
+		base(p),
+		codes(p),
+		diagnostics(p),
+		codes_go(p),
+		codes_lua(p),
+		diff(p),
+		snippets(p),
+		fzf_lua(p),
+		mason(p),
+		oil(p),
+		lazy(p),
+		fugitive(p)
+		--
+	)
+
+	-- Iterate over each group and apply default values if empty
+	for _, properties in pairs(groups) do
+		-- If the group is empty, apply the default { fg = p.fg, bg = p.bg }
+		if next(properties) == nil then -- Check if the table is empty
+			properties.fg = p.fg
+			properties.bg = p.bg
+		else
+			-- If there's an override, respect it, and only change missing properties
+			if properties.fg then
+				properties.fg = properties.fg or p.fg
+			end
+
+			if properties.bg then
+				properties.bg = properties.bg or p.bg
+			end
+		end
+	end
+	return groups
 end
 
 return M
