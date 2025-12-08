@@ -1,0 +1,3 @@
+{
+  "diagnostics.globals": ["vim", "console", "join", "unknown_global"]
+}
