@@ -245,6 +245,13 @@ local function fugitive(p)
 	}
 end
 
+local function gitsigns(p)
+	return {
+		GitSignsDeleteInline = { fg = p.red },
+		GitSignsAddInline = { fg = p.fg },
+	}
+end
+
 function M.hl(p)
 	local groups = vim.tbl_deep_extend(
 		"force",
@@ -260,7 +267,8 @@ function M.hl(p)
 		mason(p),
 		oil(p),
 		lazy(p),
-		fugitive(p)
+		fugitive(p),
+		gitsigns(p)
 		--
 	)
 
