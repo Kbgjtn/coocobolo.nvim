@@ -55,11 +55,6 @@ let g:coocobolo_colorful = {
 \ 'accent': '#8A8635',
 \ }
 
-function! s:HexToDec(hex)
-    return str2nr(a:hex[1:], 16)
-endfunction
-
-
 function! CoocoboloSetPalette(name)
     if a:name ==# 'dark
         let g:coocobolo_current = g:coocobolo_dark
